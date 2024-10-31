@@ -1,0 +1,176 @@
+<h1>Novo Endereco</h1>
+<div class="well">
+  <form #formEndereco="ngForm">
+    <div class="form-group">
+      <label for="rua">Rua:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="rua"
+        name="nome"
+        [(ngModel)]="endereco.rua"
+        #rua="ngModel"
+        minlength="2"
+        required
+      />
+      <div
+        *ngIf="rua.errors && (rua.dirty || rua.touched)"
+        class="alert alert-danger"
+      >
+        <div [hidden]="!rua.errors['required']">Digite o nome da rua.</div>
+        <div [hidden]="!rua.errors['minlength']">
+          O nome da rua deve conter ao menos 2 caracteres.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="numero">Numero:</label>
+      <input
+        type="number"
+        class="form-control"
+        id="numero"
+        name="numero"
+        [(ngModel)]="endereco.numero"
+        #numero="ngModel"
+        required
+      />
+      <div
+        *ngIf="numero.errors && (numero.dirty || numero.touched)"
+        class="alert alert-danger"
+      >
+        <div [hidden]="!numero.errors['required']">
+          Digite o numero do endereco.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="complemento">Complemento:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="rua"
+        name="complemento"
+        [(ngModel)]="endereco.complemento"
+        #complemento="ngModel"
+      />
+      <div
+        *ngIf="complemento.errors && (rua.dirty || rua.touched)"
+        class="alert alert-danger"
+      ></div>
+    </div>
+
+    <div class="form-group">
+      <label for="bairro">Bairro:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="bairro"
+        name="bairro"
+        [(ngModel)]="endereco.bairro"
+        #bairro="ngModel"
+        minlength="2"
+        required
+      />
+      <div
+        *ngIf="bairro.errors && (bairro.dirty || bairro.touched)"
+        class="alert alert-danger"
+      >
+        <div [hidden]="!bairro.errors['required']">
+          Digite o nome do bairro.
+        </div>
+        <div [hidden]="!bairro.errors['minlength']">
+          O bairro deve conter ao menos 2 caracteres.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cep">CEP:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cep"
+        name="cep"
+        [(ngModel)]="endereco.cep"
+        #cep="ngModel"
+        minlength="8"
+        required
+      />
+      <div
+        *ngIf="cep.errors && (cep.dirty || cep.touched)"
+        class="alert alert-danger"
+      >
+        <div [hidden]="!cep.errors['required']">Digite o CEP.</div>
+        <div [hidden]="!cep.errors['minlength']">
+          O CEP deve conter ao menos 8 caracteres.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="cidade">Cidade:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cidade"
+        name="cidade"
+        [(ngModel)]="endereco.cidade"
+        #cidade="ngModel"
+        minlength="2"
+        required
+      />
+      <div
+        *ngIf="cidade.errors && (cidade.dirty || cidade.touched)"
+        class="alert alert-danger"
+      >
+        <div [hidden]="!cidade.errors['required']">
+          Digite o nome da cidade.
+        </div>
+        <div [hidden]="!cidade.errors['minlength']">
+          A cidade deve conter ao menos 2 caracteres.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="estado">Estado:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="estado"
+        name="estado"
+        [(ngModel)]="endereco.estado"
+        #estado="ngModel"
+        minlength="2"
+        required
+      />
+      <div
+        *ngIf="estado.errors && (estado.dirty || estado.touched)"
+        class="alert alert-danger"
+      >
+        <div [hidden]="!estado.errors['required']">
+          Digite o nome do estado.
+        </div>
+        <div [hidden]="!estado.errors['minlength']">
+          O Estado deve conter ao menos 2 caracteres.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="inserir()"
+        [disabled]="!formEndereco.form.valid"
+      >
+        <i class="fa fa-save" aria-hidden="true"></i> Salvar
+      </button>
+      <a class="btn btn-secondary" [routerLink]="['/enderecos/listar']">
+        <i class="fa fa-arrow-left" aria-hidden="true"></i> Voltar
+      </a>
+    </div>
+  </form>
+</div>
